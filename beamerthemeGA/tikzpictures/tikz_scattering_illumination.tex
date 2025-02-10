@@ -1,0 +1,848 @@
+% \input{tikzpictures/tikz_scattering_edge}
+
+
+\newcommand{\scatteringD}{
+    \begin{tikzpicture}[domain=0:6, samples=200, scale=1]
+    
+        % x-axis
+        \draw[->, gray, line width=1pt] (0,0) -- (6.25,0) node[right, gray] {$x$};
+
+        % D descriptor
+        \draw (-0.2, 0.25) node[left] {$D$};
+
+        % D plot
+        \draw[color=black, line width=1] plot coordinates {
+            (0.0, 0.20000662714909956)
+            (0.12244897959183673, 0.200014135960003)
+            (0.24489795918367346, 0.20002930169473376)
+            (0.36734693877551017, 0.20005902958503619)
+            (0.4897959183673469, 0.20011558486207415)
+            (0.6122448979591837, 0.20022000653559974)
+            (0.7346938775510203, 0.2004071250207919)
+            (0.8571428571428571, 0.200732550326083)
+            (0.9795918367346939, 0.20128183133741745)
+            (1.1020408163265305, 0.2021816324736742)
+            (1.2244897959183674, 0.2036121962462063)
+            (1.346938775510204, 0.20581957412955065)
+            (1.4693877551020407, 0.209125209684414)
+            (1.5918367346938775, 0.2139296423856733)
+            (1.7142857142857142, 0.22070665279503682)
+            (1.836734693877551, 0.229984412487441)
+            (1.9591836734693877, 0.2423114025248786)
+            (2.0816326530612246, 0.258207113472353)
+            (2.204081632653061, 0.278100644685058)
+            (2.326530612244898, 0.3022637549242425)
+            (2.4489795918367347, 0.3307478772768682)
+            (2.571428571428571, 0.3633361931824107)
+            (2.693877551020408, 0.3995213178726017)
+            (2.816326530612245, 0.4385161738253692)
+            (2.9387755102040813, 0.4793005351393186)
+            (3.061224489795918, 0.5206994648606813)
+            (3.183673469387755, 0.5614838261746308)
+            (3.306122448979592, 0.6004786821273983)
+            (3.4285714285714284, 0.6366638068175892)
+            (3.5510204081632653, 0.6692521227231318)
+            (3.673469387755102, 0.6977362450757575)
+            (3.7959183673469385, 0.721899355314942)
+            (3.9183673469387754, 0.7417928865276471)
+            (4.040816326530612, 0.7576885974751213)
+            (4.163265306122449, 0.770015587512559)
+            (4.285714285714286, 0.7792933472049632)
+            (4.408163265306122, 0.7860703576143266)
+            (4.530612244897959, 0.7908747903155859)
+            (4.653061224489796, 0.7941804258704493)
+            (4.775510204081632, 0.7963878037537937)
+            (4.8979591836734695, 0.7978183675263257)
+            (5.020408163265306, 0.7987181686625826)
+            (5.142857142857142, 0.7992674496739169)
+            (5.26530612244898, 0.7995928749792081)
+            (5.387755102040816, 0.7997799934644003)
+            (5.5102040816326525, 0.7998844151379259)
+            (5.63265306122449, 0.7999409704149638)
+            (5.755102040816326, 0.7999706983052662)
+            (5.877551020408163, 0.799985864039997)
+            (6.0, 0.7999933728509004)
+        };
+
+
+        % yeah, this is smehow necessary
+        % \draw[color=white, fill=white] (0,1.1) circle (0.0125);
+        % \draw[color=white, fill=white] (0,-0.3) circle (0.0125);
+        \draw[color=white, fill=white] (-1.5,0) circle (0.0125);
+    \end{tikzpicture}
+
+
+    \begin{tikzpicture}[domain=0:6, samples=200, scale=1]
+    
+        % x-axis
+        \draw[->, gray, line width=1pt] (0,0) -- (6.25,0) node[right, gray] {$x$};
+
+        % D descriptor
+        \draw (-0.2, 0.25) node[left] {$\partial_x^2 D$};
+
+        % D plot
+        \draw[color=black, line width=1] plot coordinates {
+            (0.0, 0.0002509062197175727)
+            (0.12244897959183673, 0.0004942348160730249)
+            (0.24489795918367346, 0.0009430754707162593)
+            (0.36734693877551017, 0.0017429269113800052)
+            (0.4897959183673469, 0.0031192464452212136)
+            (0.6122448979591837, 0.005404604004333181)
+            (0.7346938775510203, 0.009063851107743439)
+            (0.8571428571428571, 0.014708526850648608)
+            (0.9795918367346939, 0.02308785017426929)
+            (1.1020408163265305, 0.03504112166230478)
+            (1.2244897959183674, 0.05139719065483384)
+            (1.346938775510204, 0.07281293767991139)
+            (1.4693877551020407, 0.09955579193457466)
+            (1.5918367346938775, 0.13125456600426857)
+            (1.7142857142857142, 0.16666494703690418)
+            (1.836734693877551, 0.2035144696637681)
+            (1.9591836734693877, 0.23849850373500184)
+            (2.0816326530612246, 0.26748619342462093)
+            (2.204081632653061, 0.2859599192507057)
+            (2.326530612244898, 0.28965733388400255)
+            (2.4489795918367347, 0.2753231386490585)
+            (2.571428571428571, 0.24142649490668802)
+            (2.693877551020408, 0.18867828005179724)
+            (2.816326530612245, 0.12020333092153336)
+            (2.9387755102040813, 0.04128734149621228)
+            (3.061224489795918, -0.041287341496202286)
+            (3.183673469387755, -0.12020333092153336)
+            (3.306122448979592, -0.18867828005179724)
+            (3.4285714285714284, -0.24142649490660475)
+            (3.5510204081632653, -0.2753231386490585)
+            (3.673469387755102, -0.28965733388400255)
+            (3.7959183673469385, -0.2859599192507057)
+            (3.9183673469387754, -0.26748619342462093)
+            (4.040816326530612, -0.23849850373491857)
+            (4.163265306122449, -0.20351446966385137)
+            (4.285714285714286, -0.16666494703690418)
+            (4.408163265306122, -0.13125456600426857)
+            (4.530612244897959, -0.09955579193457466)
+            (4.653061224489796, -0.07281293767991139)
+            (4.775510204081632, -0.05139719065483384)
+            (4.8979591836734695, -0.03504112166230478)
+            (5.020408163265306, -0.02308785017426929)
+            (5.142857142857142, -0.014708526850648608)
+            (5.26530612244898, -0.009063851107743439)
+            (5.387755102040816, -0.005404604004333181)
+            (5.5102040816326525, -0.0031192464452212136)
+            (5.63265306122449, -0.0017429269113800052)
+            (5.755102040816326, -0.0009430754707162593)
+            (5.877551020408163, -0.0004942348160730249)
+            (6.0, -0.0002509062197175727)
+        };
+
+        % yeah, this is smehow necessary
+        % \draw[color=white, fill=white] (0,1.1) circle (0.0125);
+        \draw[color=white, fill=white] (0,-0.5) circle (0.0125);
+        \draw[color=white, fill=white] (-1.5,0) circle (0.0125);
+    \end{tikzpicture}
+}
+
+
+\newcommand{\scatteringedgeC}{
+    \begin{tikzpicture}[domain=0:6, samples=200, scale=1]
+    
+        % x-axis
+        % \draw[->, gray, line width=1pt] (0,0) -- (6.25,0) node[right, gray] {$x$};
+
+        % scattering edge
+        \draw[draw=black, line width=0.25, fill=gray, fill opacity=0.5] (0, 0.5) rectangle (6,1);
+        \draw[draw=black, line width=0.25] (3,0.5) -- (3,1);
+
+
+        % weak scatters
+        \foreach \i in {0,...,11}{
+            \pgfmathsetmacro{\xorigin}{\i*0.25+0.125}
+            \weakscatter{\xorigin}{0.5}
+        }
+        \foreach \i in {0,...,11}{
+            \pgfmathsetmacro{\xorigin}{\i*0.25+3.125}
+            \strongscatter{\xorigin}{0.5}
+        }
+        \draw[draw=white, line width=0.25, fill=white] (6, 0.5) rectangle (7,-1);
+
+        % region of weak scattering
+        \draw[color=black, fill=black] (1.6511237601593618, 0.8488702157435999) circle (0.0125);
+        \draw[color=black, fill=black] (0.8779415982660093, 0.7551431124688899) circle (0.0125);
+        \draw[color=black, fill=black] (2.6690171891842724, 0.9382392172433831) circle (0.0125);
+        \draw[color=black, fill=black] (0.3861162986299128, 0.6109403671156387) circle (0.0125);
+        \draw[color=black, fill=black] (0.1656149298199689, 0.7218846757340524) circle (0.0125);
+        \draw[color=black, fill=black] (0.10138172736373668, 0.7294957815874877) circle (0.0125);
+        \draw[color=black, fill=black] (1.943703541653913, 0.6447814592577883) circle (0.0125);
+        \draw[color=black, fill=black] (2.0243583333908903, 0.7931598382727667) circle (0.0125);
+        \draw[color=black, fill=black] (0.08384610007206694, 0.7779556917956689) circle (0.0125);
+        \draw[color=black, fill=black] (0.7837760295497095, 0.7096730685797831) circle (0.0125);
+        \draw[color=black, fill=black] (0.8559871182696731, 0.8417405111986733) circle (0.0125);
+        \draw[color=black, fill=black] (1.3228498100704498, 0.5870121757756075) circle (0.0125);
+        \draw[color=black, fill=black] (1.632830828644738, 0.8831495131428994) circle (0.0125);
+        \draw[color=black, fill=black] (0.9239315088191346, 0.6179299948677861) circle (0.0125);
+        \draw[color=black, fill=black] (1.166714491228055, 0.9572822336837046) circle (0.0125);
+        \draw[color=black, fill=black] (2.916086381856978, 0.8318822460585865) circle (0.0125);
+        \draw[color=black, fill=black] (2.698431472901734, 0.9142316638642602) circle (0.0125);
+        \draw[color=black, fill=black] (1.137032272953445, 0.556303079214069) circle (0.0125);
+        \draw[color=black, fill=black] (1.95639743500752, 0.7774743621345142) circle (0.0125);
+        \draw[color=black, fill=black] (1.0881551701111698, 0.6194008897989202) circle (0.0125);
+        \draw[color=black, fill=black] (1.2218967512193395, 0.7352466181321053) circle (0.0125);
+        \draw[color=black, fill=black] (0.8134758452969071, 0.6511015677570805) circle (0.0125);
+        \draw[color=black, fill=black] (1.3741170379858592, 0.9212536086497901) circle (0.0125);
+        \draw[color=black, fill=black] (1.7566023907917685, 0.6471567346552997) circle (0.0125);
+        \draw[color=black, fill=black] (0.8394830822052138, 0.7284454858729247) circle (0.0125);
+        \draw[color=black, fill=black] (0.6235957751998378, 0.6081548877454597) circle (0.0125);
+        \draw[color=black, fill=black] (1.5417543029568894, 0.5539339501708822) circle (0.0125);
+        \draw[color=black, fill=black] (1.4511669587459697, 0.6845337008842208) circle (0.0125);
+        \draw[color=black, fill=black] (2.1178676999016215, 0.8672044559734522) circle (0.0125);
+        \draw[color=black, fill=black] (2.068501442520899, 0.8398606965335842) circle (0.0125);
+        \draw[color=black, fill=black] (1.1239603693430615, 0.8298640322492521) circle (0.0125);
+        \draw[color=black, fill=black] (1.023549775271533, 0.7845770881877157) circle (0.0125);
+        \draw[color=black, fill=black] (0.9817762952430015, 0.7239438984001777) circle (0.0125);
+        \draw[color=black, fill=black] (0.1955485692190693, 0.6277708255375606) circle (0.0125);
+        \draw[color=black, fill=black] (2.9030177533663637, 0.6220274970686601) circle (0.0125);
+        \draw[color=black, fill=black] (2.0696455950683075, 0.8214765076515262) circle (0.0125);
+        \draw[color=black, fill=black] (2.1662189398265093, 0.7381670900513548) circle (0.0125);
+        \draw[color=black, fill=black] (1.7875747294405415, 0.5443104763680925) circle (0.0125);
+        \draw[color=black, fill=black] (0.22837236002114442, 0.6070136124911122) circle (0.0125);
+        \draw[color=black, fill=black] (0.4642864661004096, 0.5600495636761862) circle (0.0125);
+        \draw[color=black, fill=black] (0.3971492472113411, 0.7753069226086354) circle (0.0125);
+        \draw[color=black, fill=black] (0.5712491041485377, 0.964748090439824) circle (0.0125);
+        \draw[color=black, fill=black] (2.040295041952094, 0.7694843448458913) circle (0.0125);
+        \draw[color=black, fill=black] (2.1163622874034957, 0.6378461687024438) circle (0.0125);
+        \draw[color=black, fill=black] (2.76950891065484, 0.9111167024549861) circle (0.0125);
+        \draw[color=black, fill=black] (2.1733005078234107, 0.7406139791405697) circle (0.0125);
+        \draw[color=black, fill=black] (2.5177569779830242, 0.8662573536265707) circle (0.0125);
+        \draw[color=black, fill=black] (1.976969571538847, 0.9466382518278205) circle (0.0125);
+        \draw[color=black, fill=black] (1.8976550522680347, 0.6863217778049895) circle (0.0125);
+        \draw[color=black, fill=black] (1.6572126051225753, 0.605780773932565) circle (0.0125);
+
+        % region of strong scattering
+       \draw[color=black, fill=black] (4.651123760159362, 0.8488702157435999) circle (0.0125);
+        \draw[color=black, fill=black] (3.8779415982660095, 0.7551431124688899) circle (0.0125);
+        \draw[color=black, fill=black] (5.669017189184272, 0.9382392172433831) circle (0.0125);
+        \draw[color=black, fill=black] (3.386116298629913, 0.6109403671156387) circle (0.0125);
+        \draw[color=black, fill=black] (3.165614929819969, 0.7218846757340524) circle (0.0125);
+        \draw[color=black, fill=black] (3.1013817273637367, 0.7294957815874877) circle (0.0125);
+        \draw[color=black, fill=black] (4.943703541653913, 0.6447814592577883) circle (0.0125);
+        \draw[color=black, fill=black] (5.02435833339089, 0.7931598382727667) circle (0.0125);
+        \draw[color=black, fill=black] (3.083846100072067, 0.7779556917956689) circle (0.0125);
+        \draw[color=black, fill=black] (3.78377602954971, 0.7096730685797831) circle (0.0125);
+        \draw[color=black, fill=black] (3.8559871182696734, 0.8417405111986733) circle (0.0125);
+        \draw[color=black, fill=black] (4.3228498100704495, 0.5870121757756075) circle (0.0125);
+        \draw[color=black, fill=black] (4.632830828644738, 0.8831495131428994) circle (0.0125);
+        \draw[color=black, fill=black] (3.923931508819135, 0.6179299948677861) circle (0.0125);
+        \draw[color=black, fill=black] (4.166714491228055, 0.9572822336837046) circle (0.0125);
+        \draw[color=black, fill=black] (5.916086381856978, 0.8318822460585865) circle (0.0125);
+        \draw[color=black, fill=black] (5.698431472901734, 0.9142316638642602) circle (0.0125);
+        \draw[color=black, fill=black] (4.137032272953445, 0.556303079214069) circle (0.0125);
+        \draw[color=black, fill=black] (4.956397435007521, 0.7774743621345142) circle (0.0125);
+        \draw[color=black, fill=black] (4.08815517011117, 0.6194008897989202) circle (0.0125);
+        \draw[color=black, fill=black] (4.22189675121934, 0.7352466181321053) circle (0.0125);
+        \draw[color=black, fill=black] (3.8134758452969075, 0.6511015677570805) circle (0.0125);
+        \draw[color=black, fill=black] (4.37411703798586, 0.9212536086497901) circle (0.0125);
+        \draw[color=black, fill=black] (4.756602390791769, 0.6471567346552997) circle (0.0125);
+        \draw[color=black, fill=black] (3.839483082205214, 0.7284454858729247) circle (0.0125);
+        \draw[color=black, fill=black] (3.623595775199838, 0.6081548877454597) circle (0.0125);
+        \draw[color=black, fill=black] (4.54175430295689, 0.5539339501708822) circle (0.0125);
+        \draw[color=black, fill=black] (4.45116695874597, 0.6845337008842208) circle (0.0125);
+        \draw[color=black, fill=black] (5.1178676999016215, 0.8672044559734522) circle (0.0125);
+        \draw[color=black, fill=black] (5.068501442520899, 0.8398606965335842) circle (0.0125);
+        \draw[color=black, fill=black] (4.123960369343061, 0.8298640322492521) circle (0.0125);
+        \draw[color=black, fill=black] (4.023549775271533, 0.7845770881877157) circle (0.0125);
+        \draw[color=black, fill=black] (3.9817762952430016, 0.7239438984001777) circle (0.0125);
+        \draw[color=black, fill=black] (3.1955485692190693, 0.6277708255375606) circle (0.0125);
+        \draw[color=black, fill=black] (5.903017753366363, 0.6220274970686601) circle (0.0125);
+        \draw[color=black, fill=black] (5.069645595068307, 0.8214765076515262) circle (0.0125);
+        \draw[color=black, fill=black] (5.166218939826509, 0.7381670900513548) circle (0.0125);
+        \draw[color=black, fill=black] (4.787574729440542, 0.5443104763680925) circle (0.0125);
+        \draw[color=black, fill=black] (3.2283723600211447, 0.6070136124911122) circle (0.0125);
+        \draw[color=black, fill=black] (3.46428646610041, 0.5600495636761862) circle (0.0125);
+        \draw[color=black, fill=black] (3.3971492472113414, 0.7753069226086354) circle (0.0125);
+        \draw[color=black, fill=black] (3.5712491041485377, 0.964748090439824) circle (0.0125);
+        \draw[color=black, fill=black] (5.040295041952094, 0.7694843448458913) circle (0.0125);
+        \draw[color=black, fill=black] (5.116362287403495, 0.6378461687024438) circle (0.0125);
+        \draw[color=black, fill=black] (5.7695089106548405, 0.9111167024549861) circle (0.0125);
+        \draw[color=black, fill=black] (5.173300507823411, 0.7406139791405697) circle (0.0125);
+        \draw[color=black, fill=black] (5.517756977983025, 0.8662573536265707) circle (0.0125);
+        \draw[color=black, fill=black] (4.976969571538847, 0.9466382518278205) circle (0.0125);
+        \draw[color=black, fill=black] (4.897655052268035, 0.6863217778049895) circle (0.0125);
+        \draw[color=black, fill=black] (4.6572126051225755, 0.605780773932565) circle (0.0125);
+        \draw[color=black, fill=black] (3.5839150817709693, 0.85719307136809) circle (0.0125);
+        \draw[color=black, fill=black] (5.347686692707615, 0.9742467227497889) circle (0.0125);
+        \draw[color=black, fill=black] (5.544139965698467, 0.7707073051330158) circle (0.0125);
+        \draw[color=black, fill=black] (3.279627836831118, 0.7447147911926536) circle (0.0125);
+        \draw[color=black, fill=black] (5.773110633997323, 0.8866186447641513) circle (0.0125);
+        \draw[color=black, fill=black] (4.455655322510912, 0.728757696703421) circle (0.0125);
+        \draw[color=black, fill=black] (3.661007661017827, 0.5966763558808662) circle (0.0125);
+        \draw[color=black, fill=black] (3.231530415927589, 0.936386764103869) circle (0.0125);
+        \draw[color=black, fill=black] (4.9170254352747005, 0.5805828507988776) circle (0.0125);
+        \draw[color=black, fill=black] (4.244527586155717, 0.5358267390889899) circle (0.0125);
+        \draw[color=black, fill=black] (3.635385714829032, 0.8595863589612932) circle (0.0125);
+        \draw[color=black, fill=black] (4.949590242063758, 0.7400146912540644) circle (0.0125);
+        \draw[color=black, fill=black] (3.8299720038495266, 0.8223059844064378) circle (0.0125);
+        \draw[color=black, fill=black] (5.857937296169206, 0.7193722641832165) circle (0.0125);
+        \draw[color=black, fill=black] (3.221144202635819, 0.5399224567159095) circle (0.0125);
+        \draw[color=black, fill=black] (3.2590412809227334, 0.96836091394528) circle (0.0125);
+        \draw[color=black, fill=black] (4.621263487654819, 0.9102946555181182) circle (0.0125);
+        \draw[color=black, fill=black] (3.5183497941054758, 0.6361639095462347) circle (0.0125);
+        \draw[color=black, fill=black] (5.071133097821707, 0.9378959058674422) circle (0.0125);
+        \draw[color=black, fill=black] (4.026048241268975, 0.5432197690453845) circle (0.0125);
+        \draw[color=black, fill=black] (5.583256016496665, 0.650664411769001) circle (0.0125);
+        \draw[color=black, fill=black] (5.217220159038698, 0.5875659859832096) circle (0.0125);
+        \draw[color=black, fill=black] (5.080016219544106, 0.9121743190397954) circle (0.0125);
+        \draw[color=black, fill=black] (5.17577743427146, 0.6830760743101584) circle (0.0125);
+        \draw[color=black, fill=black] (5.174402010683338, 0.5787468839866686) circle (0.0125);
+        \draw[color=black, fill=black] (3.9461118678188356, 0.7118018094243986) circle (0.0125);
+        \draw[color=black, fill=black] (5.622205815859344, 0.5855265990712929) circle (0.0125);
+        \draw[color=black, fill=black] (5.630871250991714, 0.8920080516298818) circle (0.0125);
+        \draw[color=black, fill=black] (5.9030822838069925, 0.6871589170691437) circle (0.0125);
+        \draw[color=black, fill=black] (3.622195812500643, 0.6267709021589345) circle (0.0125);
+        \draw[color=black, fill=black] (5.475391834228727, 0.9709833705821098) circle (0.0125);
+        \draw[color=black, fill=black] (5.09145974518176, 0.7416860948425692) circle (0.0125);
+        \draw[color=black, fill=black] (3.86647304992637, 0.9085017450630009) circle (0.0125);
+        \draw[color=black, fill=black] (5.607234037488292, 0.5562625061052809) circle (0.0125);
+        \draw[color=black, fill=black] (3.654949676283836, 0.9075865179674867) circle (0.0125);
+        \draw[color=black, fill=black] (5.5362040938115005, 0.6619601744128987) circle (0.0125);
+        \draw[color=black, fill=black] (3.8434014256193976, 0.7171371354587686) circle (0.0125);
+        \draw[color=black, fill=black] (4.6173533382873835, 0.5578942371281415) circle (0.0125);
+        \draw[color=black, fill=black] (5.502313612673005, 0.7664990634168775) circle (0.0125);
+        \draw[color=black, fill=black] (5.318029249746747, 0.6221472261487553) circle (0.0125);
+        \draw[color=black, fill=black] (5.884247719541438, 0.8692379709762301) circle (0.0125);
+        \draw[color=black, fill=black] (4.033204246566085, 0.9630506323059785) circle (0.0125);
+        \draw[color=black, fill=black] (5.096522542424662, 0.9117665156059627) circle (0.0125);
+        \draw[color=black, fill=black] (3.14785448492121, 0.5389297319995519) circle (0.0125);
+        \draw[color=black, fill=black] (5.222143388810146, 0.6572260556504862) circle (0.0125);
+        \draw[color=black, fill=black] (4.549933488383655, 0.5867246512438549) circle (0.0125);
+        \draw[color=black, fill=black] (5.9219084187295294, 0.7513067476453492) circle (0.0125);
+        \draw[color=black, fill=black] (5.478778208462308, 0.5476679532329982) circle (0.0125);
+        \draw[color=black, fill=black] (4.437273470348068, 0.5420827531927436) circle (0.0125);
+        \draw[color=black, fill=black] (5.643118257486018, 0.7242598348886554) circle (0.0125);
+        \draw[color=black, fill=black] (3.2164360068289644, 0.5488357341000796) circle (0.0125);
+        \draw[color=black, fill=black] (4.615408157559431, 0.5483940421399845) circle (0.0125);
+        \draw[color=black, fill=black] (3.5592226460870173, 0.7197696149790942) circle (0.0125);
+        \draw[color=black, fill=black] (4.493403922279911, 0.7895731597398348) circle (0.0125);
+        \draw[color=black, fill=black] (4.8585252271796, 0.6895854623302675) circle (0.0125);
+        \draw[color=black, fill=black] (4.853241334367225, 0.5871912127329397) circle (0.0125);
+        \draw[color=black, fill=black] (3.8321377144152384, 0.8918911785332475) circle (0.0125);
+        \draw[color=black, fill=black] (3.4679406696613855, 0.618578412120725) circle (0.0125);
+        \draw[color=black, fill=black] (3.7353600845895163, 0.7402659697909568) circle (0.0125);
+        \draw[color=black, fill=black] (3.0147179280746466, 0.5268978962481715) circle (0.0125);
+        \draw[color=black, fill=black] (4.385605751152221, 0.5896973253115966) circle (0.0125);
+        \draw[color=black, fill=black] (5.034017866225524, 0.8902221789089033) circle (0.0125);
+        \draw[color=black, fill=black] (4.732535992244688, 0.8425133641572727) circle (0.0125);
+        \draw[color=black, fill=black] (4.175600096808289, 0.5344906964216505) circle (0.0125);
+        \draw[color=black, fill=black] (4.319779059573207, 0.6891906482994838) circle (0.0125);
+        \draw[color=black, fill=black] (4.788584645545982, 0.5762536306070407) circle (0.0125);
+        \draw[color=black, fill=black] (3.689945867747462, 0.899521647850458) circle (0.0125);
+        \draw[color=black, fill=black] (3.7988684417546343, 0.7074020973309025) circle (0.0125);
+        \draw[color=black, fill=black] (5.79701722507495, 0.6433874199349059) circle (0.0125);
+        \draw[color=black, fill=black] (3.444737627589353, 0.8459595614324399) circle (0.0125);
+        \draw[color=black, fill=black] (4.699522987562792, 0.8030070718846336) circle (0.0125);
+        \draw[color=black, fill=black] (3.1375417817058815, 0.7107017750096827) circle (0.0125);
+        \draw[color=black, fill=black] (3.0251926416472994, 0.6296043477089225) circle (0.0125);
+        \draw[color=black, fill=black] (5.113017146162418, 0.5417318400623323) circle (0.0125);
+        \draw[color=black, fill=black] (3.8892131583447576, 0.9818535575857847) circle (0.0125);
+        \draw[color=black, fill=black] (5.9018861349252525, 0.7413770346228599) circle (0.0125);
+        \draw[color=black, fill=black] (5.201187824921531, 0.813011492738416) circle (0.0125);
+        \draw[color=black, fill=black] (4.397936887545117, 0.9196065555046269) circle (0.0125);
+        \draw[color=black, fill=black] (3.5257418001943828, 0.9060051630659525) circle (0.0125);
+        \draw[color=black, fill=black] (3.1376568322884966, 0.9243030036110793) circle (0.0125);
+        \draw[color=black, fill=black] (5.023589847718037, 0.7243092022076626) circle (0.0125);
+        \draw[color=black, fill=black] (5.010421486711974, 0.7311750393473899) circle (0.0125);
+        \draw[color=black, fill=black] (5.33300958657629, 0.5663859398354557) circle (0.0125);
+        \draw[color=black, fill=black] (4.524268350824601, 0.9264575314733396) circle (0.0125);
+        \draw[color=black, fill=black] (5.771899595540766, 0.6171597574854485) circle (0.0125);
+        \draw[color=black, fill=black] (3.7619926500999914, 0.9419059240142696) circle (0.0125);
+        \draw[color=black, fill=black] (4.040414082677508, 0.5395144726731399) circle (0.0125);
+        \draw[color=black, fill=black] (5.139287849533297, 0.7093489580978449) circle (0.0125);
+        \draw[color=black, fill=black] (5.200089457798054, 0.7391185258856005) circle (0.0125);
+        \draw[color=black, fill=black] (4.501682524448385, 0.7108419074440799) circle (0.0125);
+        \draw[color=black, fill=black] (3.876692565704576, 0.9403376620089917) circle (0.0125);
+        \draw[color=black, fill=black] (5.002143044505694, 0.8871953630879095) circle (0.0125);
+        \draw[color=black, fill=black] (5.677325105002024, 0.631339747634946) circle (0.0125);
+        \draw[color=black, fill=black] (5.748966326567956, 0.9222374164478151) circle (0.0125);
+        \draw[color=black, fill=black] (4.518103654821834, 0.7822535327184146) circle (0.0125);
+        \draw[color=black, fill=black] (3.354423408159416, 0.8745050242649401) circle (0.0125);
+        \draw[color=black, fill=black] (3.527844396373363, 0.7660721194778071) circle (0.0125);
+        \draw[color=black, fill=black] (3.38865098305544, 0.5471356194515247) circle (0.0125);
+        \draw[color=black, fill=black] (4.824356645187679, 0.745821486567448) circle (0.0125);
+        \draw[color=black, fill=black] (5.020059555849336, 0.8881557369507851) circle (0.0125);
+        \draw[color=black, fill=black] (5.935995290620559, 0.5524383235114236) circle (0.0125);
+        \draw[color=black, fill=black] (4.890356034489901, 0.7865630753061877) circle (0.0125);
+        \draw[color=black, fill=black] (4.948160475955317, 0.7705102410368303) circle (0.0125);
+        \draw[color=black, fill=black] (4.67066797790235, 0.9250634509792321) circle (0.0125);
+        \draw[color=black, fill=black] (4.357234558705437, 0.7666133998494217) circle (0.0125);
+        \draw[color=black, fill=black] (5.068117018701663, 0.5550101209126767) circle (0.0125);
+        \draw[color=black, fill=black] (4.297477823689746, 0.5610137548346319) circle (0.0125);
+        \draw[color=black, fill=black] (3.422484431410324, 0.5135096402713067) circle (0.0125);
+        \draw[color=black, fill=black] (3.636376647580823, 0.6154026996581612) circle (0.0125);
+        \draw[color=black, fill=black] (4.548327331672468, 0.7833489132828655) circle (0.0125);
+        \draw[color=black, fill=black] (5.46378451199716, 0.7436878146909996) circle (0.0125);
+        \draw[color=black, fill=black] (5.66457743179233, 0.7001538751432037) circle (0.0125);
+        \draw[color=black, fill=black] (5.227719055076216, 0.7750596996482566) circle (0.0125);
+        \draw[color=black, fill=black] (4.8683796301726705, 0.6409361985195735) circle (0.0125);
+        \draw[color=black, fill=black] (5.801845148620872, 0.8780859897950015) circle (0.0125);
+        \draw[color=black, fill=black] (3.4456452114829723, 0.7677813257236724) circle (0.0125);
+        \draw[color=black, fill=black] (5.974964259027867, 0.5358017579399375) circle (0.0125);
+        \draw[color=black, fill=black] (3.9133890178049002, 0.8643863513922789) circle (0.0125);
+        \draw[color=black, fill=black] (3.1296003067665294, 0.8671687682213227) circle (0.0125);
+        \draw[color=black, fill=black] (4.718428307951689, 0.8600601958919816) circle (0.0125);
+        \draw[color=black, fill=black] (4.651226972732983, 0.9587166521930505) circle (0.0125);
+        \draw[color=black, fill=black] (4.043045066128305, 0.7853729934697082) circle (0.0125);
+        \draw[color=black, fill=black] (3.163570437531772, 0.7753805962233196) circle (0.0125);
+        \draw[color=black, fill=black] (4.260194007352613, 0.9795018492003458) circle (0.0125);
+        \draw[color=black, fill=black] (5.825681773540207, 0.5781827220575977) circle (0.0125);
+        \draw[color=black, fill=black] (3.1363065335546128, 0.5698206568577309) circle (0.0125);
+        \draw[color=black, fill=black] (3.5859222289664654, 0.8574297972975125) circle (0.0125);
+        \draw[color=black, fill=black] (4.630834411777703, 0.7665895339042588) circle (0.0125);
+        \draw[color=black, fill=black] (4.394497513901047, 0.5156797537312202) circle (0.0125);
+        \draw[color=black, fill=black] (4.180103942794789, 0.9869957595983545) circle (0.0125);
+        \draw[color=black, fill=black] (5.452866336100543, 0.78460883769636) circle (0.0125);
+        \draw[color=black, fill=black] (3.596977308068455, 0.949722976641943) circle (0.0125);
+        \draw[color=black, fill=black] (4.274338061028279, 0.8066804547127544) circle (0.0125);
+        \draw[color=black, fill=black] (3.6167452788049967, 0.668331228306003) circle (0.0125);
+        \draw[color=black, fill=black] (4.038736552230422, 0.7000071384409314) circle (0.0125);
+        \draw[color=black, fill=black] (3.078639862507635, 0.8261648497927192) circle (0.0125);
+        \draw[color=black, fill=black] (3.518220303543527, 0.7990676250453088) circle (0.0125);
+        \draw[color=black, fill=black] (4.855751530941051, 0.8440047545553633) circle (0.0125);
+        \draw[color=black, fill=black] (3.88099527848785, 0.6512151936180643) circle (0.0125);
+        \draw[color=black, fill=black] (5.260200193785938, 0.6969064927525063) circle (0.0125);
+        \draw[color=black, fill=black] (3.4660782013502742, 0.9425008281081018) circle (0.0125);
+        \draw[color=black, fill=black] (3.0514213596077404, 0.9335800936364966) circle (0.0125);
+        \draw[color=black, fill=black] (3.8819639084574558, 0.6938668940532282) circle (0.0125);
+        \draw[color=black, fill=black] (5.923255328378266, 0.719920977184077) circle (0.0125);
+        \draw[color=black, fill=black] (5.142248886757052, 0.708381814292805) circle (0.0125);
+        \draw[color=black, fill=black] (5.7302690412036945, 0.8542579871249103) circle (0.0125);
+        \draw[color=black, fill=black] (4.442558070595279, 0.552505283267457) circle (0.0125);
+        \draw[color=black, fill=black] (4.094310756790412, 0.7455381836149485) circle (0.0125);
+        \draw[color=black, fill=black] (3.8569959457678666, 0.766454241974333) circle (0.0125);
+        \draw[color=black, fill=black] (3.6362119278404323, 0.7473065483823509) circle (0.0125);
+        \draw[color=black, fill=black] (4.5833154555924, 0.8323458292869551) circle (0.0125);
+        \draw[color=black, fill=black] (5.229963389118934, 0.8592375274621469) circle (0.0125);
+        \draw[color=black, fill=black] (4.274244803358433, 0.729077357275775) circle (0.0125);
+        \draw[color=black, fill=black] (5.611183626872632, 0.684824263221054) circle (0.0125);
+        \draw[color=black, fill=black] (5.208147672098965, 0.9846819350527549) circle (0.0125);
+        \draw[color=black, fill=black] (5.763804941022462, 0.7733875122014033) circle (0.0125);
+        \draw[color=black, fill=black] (3.9202063759520422, 0.8080985020291538) circle (0.0125);
+        \draw[color=black, fill=black] (5.048297462987865, 0.7628070710852396) circle (0.0125);
+        \draw[color=black, fill=black] (4.02839297669945, 0.7288276213862125) circle (0.0125);
+        \draw[color=black, fill=black] (3.255827460470162, 0.6508590473744904) circle (0.0125);
+        \draw[color=black, fill=black] (3.443567846081052, 0.8290783471402051) circle (0.0125);
+        \draw[color=black, fill=black] (5.8662215710765295, 0.5871864744561663) circle (0.0125);
+        \draw[color=black, fill=black] (3.096674863758591, 0.8646446553777318) circle (0.0125);
+        \draw[color=black, fill=black] (4.0661393570589075, 0.7528339814013025) circle (0.0125);
+        \draw[color=black, fill=black] (3.1941180236561606, 0.5969383497006044) circle (0.0125);
+        \draw[color=black, fill=black] (5.081631218523925, 0.7999750443181728) circle (0.0125);
+        \draw[color=black, fill=black] (5.551398386696226, 0.9698885264306778) circle (0.0125);
+        \draw[color=black, fill=black] (4.082354919838087, 0.807118040663894) circle (0.0125);
+        \draw[color=black, fill=black] (4.344340301334439, 0.7526585572823103) circle (0.0125);
+        \draw[color=black, fill=black] (4.177217731804389, 0.976762257800597) circle (0.0125);
+        \draw[color=black, fill=black] (4.867822506938803, 0.579895578059014) circle (0.0125);
+        \draw[color=black, fill=black] (5.08824211327409, 0.9712342222339319) circle (0.0125);
+        \draw[color=black, fill=black] (5.674676925292754, 0.7775519395997127) circle (0.0125);
+        \draw[color=black, fill=black] (3.0562764816520875, 0.8951345075898651) circle (0.0125);
+        \draw[color=black, fill=black] (5.784787486503392, 0.8611162664697811) circle (0.0125);
+        \draw[color=black, fill=black] (4.288635553692836, 0.6933995264834376) circle (0.0125);
+        \draw[color=black, fill=black] (5.227699171873767, 0.5637292711461849) circle (0.0125);
+        \draw[color=black, fill=black] (5.346970145645802, 0.7494324787304996) circle (0.0125);
+        \draw[color=black, fill=black] (3.2211040640524224, 0.9034464767111239) circle (0.0125);
+        \draw[color=black, fill=black] (4.177829745027248, 0.5632133444480764) circle (0.0125);
+        \draw[color=black, fill=black] (3.5295503715191727, 0.9207304925000027) circle (0.0125);
+        \draw[color=black, fill=black] (3.526406853501651, 0.885018971120905) circle (0.0125);
+        \draw[color=black, fill=black] (5.404745398442204, 0.5535961191778126) circle (0.0125);
+        \draw[color=black, fill=black] (4.307775069477666, 0.8864005123697469) circle (0.0125);
+        \draw[color=black, fill=black] (4.470431121589947, 0.9238575138963264) circle (0.0125);
+        \draw[color=black, fill=black] (4.1421707188263595, 0.8109493489400177) circle (0.0125);
+        \draw[color=black, fill=black] (3.6477227883406202, 0.9125717824540889) circle (0.0125);
+        \draw[color=black, fill=black] (5.509587927040242, 0.7812713089148567) circle (0.0125);
+        \draw[color=black, fill=black] (3.973688128688101, 0.6775948906839879) circle (0.0125);
+        \draw[color=black, fill=black] (4.781681157562369, 0.5734943114017982) circle (0.0125);
+        \draw[color=black, fill=black] (4.531156697763924, 0.6528274787150878) circle (0.0125);
+        \draw[color=black, fill=black] (4.028695603969178, 0.6653735488554572) circle (0.0125);
+        \draw[color=black, fill=black] (5.495248121253675, 0.5958627908793606) circle (0.0125);
+        \draw[color=black, fill=black] (3.7159315154386796, 0.5906255878792792) circle (0.0125);
+        \draw[color=black, fill=black] (3.0574248003810394, 0.7146622466804751) circle (0.0125);
+        \draw[color=black, fill=black] (5.523243789017137, 0.9413058972667581) circle (0.0125);
+        \draw[color=black, fill=black] (4.462412844138742, 0.7126537703643462) circle (0.0125);
+        \draw[color=black, fill=black] (5.595297512227341, 0.7635350191658061) circle (0.0125);
+        \draw[color=black, fill=black] (4.644784845348443, 0.8209231610785717) circle (0.0125);
+        \draw[color=black, fill=black] (3.2493478738160015, 0.910790148987122) circle (0.0125);
+        \draw[color=black, fill=black] (3.3270855496835723, 0.7653527346055944) circle (0.0125);
+        \draw[color=black, fill=black] (5.767378388690032, 0.7731357361620216) circle (0.0125);
+        \draw[color=black, fill=black] (4.030568334814332, 0.8576496621406723) circle (0.0125);
+        \draw[color=black, fill=black] (5.693018287203314, 0.8052117988556322) circle (0.0125);
+        \draw[color=black, fill=black] (3.17876127460737, 0.9299340842498602) circle (0.0125);
+        \draw[color=black, fill=black] (3.0659829178071614, 0.8346636376030974) circle (0.0125);
+        \draw[color=black, fill=black] (5.69013691871716, 0.5872866428200441) circle (0.0125);
+        \draw[color=black, fill=black] (4.583791261155209, 0.8474009301301095) circle (0.0125);
+        \draw[color=black, fill=black] (3.534647098497941, 0.6289688526619743) circle (0.0125);
+        \draw[color=black, fill=black] (3.2105457171299787, 0.5880261915405582) circle (0.0125);
+        \draw[color=black, fill=black] (3.3640321566073292, 0.6505551553982681) circle (0.0125);
+        \draw[color=black, fill=black] (5.245455921164965, 0.8420001237715512) circle (0.0125);
+        \draw[color=black, fill=black] (5.281242204473566, 0.8258403731402654) circle (0.0125);
+        \draw[color=black, fill=black] (5.375346737587078, 0.5832542481430456) circle (0.0125);
+        \draw[color=black, fill=black] (4.661582941497156, 0.5226933826401328) circle (0.0125);
+        \draw[color=black, fill=black] (4.475200094278857, 0.9131230023771012) circle (0.0125);
+        \draw[color=black, fill=black] (4.417554191748561, 0.6529033389329979) circle (0.0125);
+        \draw[color=black, fill=black] (3.829598628473099, 0.6994321863154769) circle (0.0125);
+        \draw[color=black, fill=black] (5.731123425396465, 0.9752906304082803) circle (0.0125);
+        \draw[color=black, fill=black] (5.23893955723628, 0.9815672847866511) circle (0.0125);
+        \draw[color=black, fill=black] (5.280159238302032, 0.6475140861683918) circle (0.0125);
+        \draw[color=black, fill=black] (4.306869073919187, 0.8559958510337649) circle (0.0125);
+        \draw[color=black, fill=black] (5.122786554953965, 0.8346093986898939) circle (0.0125);
+        \draw[color=black, fill=black] (4.46396710599917, 0.580487761082701) circle (0.0125);
+        \draw[color=black, fill=black] (5.867424753547023, 0.6170585398849928) circle (0.0125);
+        \draw[color=black, fill=black] (5.926168425920194, 0.5730262805046015) circle (0.0125);
+        \draw[color=black, fill=black] (5.928998511500038, 0.6911551635593759) circle (0.0125);
+        \draw[color=black, fill=black] (5.425036417419701, 0.51596375825037) circle (0.0125);
+        \draw[color=black, fill=black] (4.3363773574942766, 0.6307473420371599) circle (0.0125);
+        \draw[color=black, fill=black] (5.078712476380986, 0.8274377057743493) circle (0.0125);
+        \draw[color=black, fill=black] (4.386706793948996, 0.8481520348061717) circle (0.0125);
+        \draw[color=black, fill=black] (5.922828301780463, 0.5567926000620228) circle (0.0125);
+        \draw[color=black, fill=black] (4.686461270322334, 0.8335814987333781) circle (0.0125);
+        \draw[color=black, fill=black] (4.896325276089467, 0.6370698458298781) circle (0.0125);
+        \draw[color=black, fill=black] (5.615487539075669, 0.6291273002514354) circle (0.0125);
+        \draw[color=black, fill=black] (5.526260598726556, 0.7360960924109092) circle (0.0125);
+        \draw[color=black, fill=black] (3.4382002480250273, 0.9039615622923338) circle (0.0125);
+        \draw[color=black, fill=black] (3.245092345762196, 0.8901200737497079) circle (0.0125);
+        \draw[color=black, fill=black] (4.79753634753259, 0.9289132629988561) circle (0.0125);
+        \draw[color=black, fill=black] (5.402033438278814, 0.703436106877335) circle (0.0125);
+        \draw[color=black, fill=black] (3.4146966556108893, 0.6389409609781687) circle (0.0125);
+        \draw[color=black, fill=black] (3.0164345394106062, 0.8228665428075648) circle (0.0125);
+        \draw[color=black, fill=black] (3.2668993938094695, 0.5976620740623829) circle (0.0125);
+        \draw[color=black, fill=black] (3.741305169558122, 0.7053986791386292) circle (0.0125);
+        \draw[color=black, fill=black] (5.055729845178206, 0.723622093121538) circle (0.0125);
+        \draw[color=black, fill=black] (4.511217433434315, 0.5567737037063711) circle (0.0125);
+        \draw[color=black, fill=black] (4.018577768282353, 0.6106675587606698) circle (0.0125);
+        \draw[color=black, fill=black] (5.211434207035981, 0.5208849919697224) circle (0.0125);
+        \draw[color=black, fill=black] (4.847467926607594, 0.8439962896930795) circle (0.0125);
+        \draw[color=black, fill=black] (4.513812975936909, 0.5336268128110213) circle (0.0125);
+        \draw[color=black, fill=black] (3.7595002980685193, 0.6254671704534294) circle (0.0125);
+        \draw[color=black, fill=black] (3.8091073679675187, 0.6375152150635204) circle (0.0125);
+        \draw[color=black, fill=black] (5.906328572794322, 0.8883015946605752) circle (0.0125);
+        \draw[color=black, fill=black] (5.662959426567059, 0.8514138751309777) circle (0.0125);
+        \draw[color=black, fill=black] (4.043818671623357, 0.9598803756216794) circle (0.0125);
+        \draw[color=black, fill=black] (4.4537540699017955, 0.6005815964263249) circle (0.0125);
+        \draw[color=black, fill=black] (5.182760178367703, 0.6356699200804254) circle (0.0125);
+        \draw[color=black, fill=black] (5.460286601721005, 0.8642274848775491) circle (0.0125);
+        \draw[color=black, fill=black] (3.8758459398758247, 0.7308303562944375) circle (0.0125);
+        \draw[color=black, fill=black] (5.13991453208018, 0.8298073456440357) circle (0.0125);
+        \draw[color=black, fill=black] (4.579070930967275, 0.6142178881304656) circle (0.0125);
+        \draw[color=black, fill=black] (3.977569168480024, 0.8425267151310745) circle (0.0125);
+        \draw[color=black, fill=black] (4.37202467099032, 0.8534835718961824) circle (0.0125);
+        \draw[color=black, fill=black] (5.0477451595075316, 0.6814345434131661) circle (0.0125);
+        \draw[color=black, fill=black] (3.307317017534771, 0.8358735249976902) circle (0.0125);
+        \draw[color=black, fill=black] (4.0703604573398495, 0.7808582827106383) circle (0.0125);
+        \draw[color=black, fill=black] (3.384360650201536, 0.581860089285133) circle (0.0125);
+        \draw[color=black, fill=black] (4.273421130688751, 0.8304549467325167) circle (0.0125);
+        \draw[color=black, fill=black] (3.3619574223262836, 0.8803624124654914) circle (0.0125);
+        \draw[color=black, fill=black] (5.545308134616331, 0.8319958678251391) circle (0.0125);
+        \draw[color=black, fill=black] (5.242586861961964, 0.6257781325431103) circle (0.0125);
+        \draw[color=black, fill=black] (3.3107943536955764, 0.6688365877784912) circle (0.0125);
+        \draw[color=black, fill=black] (3.3859868076126958, 0.7103327004442812) circle (0.0125);
+        \draw[color=black, fill=black] (5.2768449430637805, 0.6460211083357281) circle (0.0125);
+        \draw[color=black, fill=black] (5.558637327387279, 0.7276677216823464) circle (0.0125);
+        \draw[color=black, fill=black] (3.4941680263020896, 0.8175830079956223) circle (0.0125);
+        \draw[color=black, fill=black] (4.3171091662172705, 0.6693590215020062) circle (0.0125);
+        \draw[color=black, fill=black] (4.548746157652441, 0.9832594051522209) circle (0.0125);
+        \draw[color=black, fill=black] (5.249352203490026, 0.6519400237258779) circle (0.0125);
+        \draw[color=black, fill=black] (5.771633440326185, 0.5999787256299138) circle (0.0125);
+        \draw[color=black, fill=black] (4.226722653344374, 0.6894823676596369) circle (0.0125);
+        \draw[color=black, fill=black] (5.944947666791791, 0.5146462248867661) circle (0.0125);
+        \draw[color=black, fill=black] (4.944065137991998, 0.7541141040956347) circle (0.0125);
+        \draw[color=black, fill=black] (3.476404916092303, 0.8172971157273021) circle (0.0125);
+        \draw[color=black, fill=black] (5.415878076095851, 0.8768162848690166) circle (0.0125);
+        \draw[color=black, fill=black] (3.2434356093298016, 0.890172230392427) circle (0.0125);
+        \draw[color=black, fill=black] (4.041574211238986, 0.9174834626998192) circle (0.0125);
+        \draw[color=black, fill=black] (4.684733499153352, 0.5504678923406783) circle (0.0125);
+        \draw[color=black, fill=black] (5.2281330917320465, 0.7802073317057818) circle (0.0125);
+        \draw[color=black, fill=black] (4.3554964701363765, 0.8157677531754832) circle (0.0125);
+        \draw[color=black, fill=black] (4.332531492055002, 0.5300395186700748) circle (0.0125);
+        \draw[color=black, fill=black] (5.727795835171186, 0.6492075497033909) circle (0.0125);
+        \draw[color=black, fill=black] (3.8435485772980815, 0.5361189773934852) circle (0.0125);
+        \draw[color=black, fill=black] (5.146751020495391, 0.944490713168159) circle (0.0125);
+        \draw[color=black, fill=black] (4.389788910539089, 0.8992090073461) circle (0.0125);
+        \draw[color=black, fill=black] (3.990725247392412, 0.6952492355506471) circle (0.0125);
+        \draw[color=black, fill=black] (3.8803782882255144, 0.6525957982997832) circle (0.0125);
+        \draw[color=black, fill=black] (4.682335188937143, 0.6673222434535392) circle (0.0125);
+        \draw[color=black, fill=black] (3.2082434169303116, 0.8403773997059669) circle (0.0125);
+        \draw[color=black, fill=black] (3.930697128474403, 0.6988354713709852) circle (0.0125);
+        \draw[color=black, fill=black] (3.5667222437348958, 0.5359482483738622) circle (0.0125);
+        \draw[color=black, fill=black] (4.958992004648147, 0.7135257301947027) circle (0.0125);
+        \draw[color=black, fill=black] (5.7863614507760825, 0.5214890620835165) circle (0.0125);
+        \draw[color=black, fill=black] (5.466565388691704, 0.5213061122899324) circle (0.0125);
+        \draw[color=black, fill=black] (3.527077439654438, 0.5190721391331038) circle (0.0125);
+        \draw[color=black, fill=black] (4.527917604006128, 0.6805097051552712) circle (0.0125);
+        \draw[color=black, fill=black] (3.9595870604563057, 0.9753359159071127) circle (0.0125);
+        \draw[color=black, fill=black] (4.732191516066443, 0.9525130441371477) circle (0.0125);
+        \draw[color=black, fill=black] (5.6571547845515955, 0.6737943833708693) circle (0.0125);
+        \draw[color=black, fill=black] (4.9567985971610256, 0.6051505323233437) circle (0.0125);
+        \draw[color=black, fill=black] (4.099857150960613, 0.8377733324388994) circle (0.0125);
+        \draw[color=black, fill=black] (4.704742695994826, 0.552852078036661) circle (0.0125);
+        \draw[color=black, fill=black] (3.2449643843760723, 0.8787259248800445) circle (0.0125);
+        \draw[color=black, fill=black] (5.098158063435527, 0.8205735031380015) circle (0.0125);
+        \draw[color=black, fill=black] (3.6694406586138495, 0.8848137128532769) circle (0.0125);
+        \draw[color=black, fill=black] (4.728899383653666, 0.5823786486121131) circle (0.0125);
+        \draw[color=black, fill=black] (3.506864772114368, 0.8073810430201651) circle (0.0125);
+        \draw[color=black, fill=black] (5.922862997788883, 0.790883983013217) circle (0.0125);
+        \draw[color=black, fill=black] (3.8906222864235467, 0.8526488573382954) circle (0.0125);
+        \draw[color=black, fill=black] (3.6170612759766594, 0.817150272698228) circle (0.0125);
+        \draw[color=black, fill=black] (4.243864921601516, 0.5271310845804141) circle (0.0125);
+        \draw[color=black, fill=black] (4.548787440175075, 0.7535675503531679) circle (0.0125);
+        \draw[color=black, fill=black] (5.7254729393499, 0.8501626257198611) circle (0.0125);
+        \draw[color=black, fill=black] (3.916399300411074, 0.8189474107117682) circle (0.0125);
+        \draw[color=black, fill=black] (3.7562554861590187, 0.8232213414267623) circle (0.0125);
+        \draw[color=black, fill=black] (4.801788185270242, 0.8043807882113698) circle (0.0125);
+        \draw[color=black, fill=black] (3.491849924107542, 0.8500750627342006) circle (0.0125);
+        \draw[color=black, fill=black] (4.612227451220168, 0.8650948409486634) circle (0.0125);
+        \draw[color=black, fill=black] (3.145394848639196, 0.8606815037476718) circle (0.0125);
+        \draw[color=black, fill=black] (5.8395285711301845, 0.7906842070858513) circle (0.0125);
+        \draw[color=black, fill=black] (3.4294429915729157, 0.9512923259747015) circle (0.0125);
+        \draw[color=black, fill=black] (4.665706287084056, 0.6442727214719687) circle (0.0125);
+        \draw[color=black, fill=black] (4.86336782055604, 0.9204741927313151) circle (0.0125);
+        \draw[color=black, fill=black] (3.3346888828865198, 0.7783398866639302) circle (0.0125);
+        \draw[color=black, fill=black] (4.894891723407229, 0.9524058754459013) circle (0.0125);
+        \draw[color=black, fill=black] (3.1261089508903, 0.7535302232209765) circle (0.0125);
+        \draw[color=black, fill=black] (5.192057035686696, 0.8258539913115985) circle (0.0125);
+        \draw[color=black, fill=black] (5.575226893698424, 0.8243072402042362) circle (0.0125);
+        \draw[color=black, fill=black] (4.891597576961027, 0.8022039329475774) circle (0.0125);
+        \draw[color=black, fill=black] (3.5024457750921285, 0.918473219345137) circle (0.0125);
+        \draw[color=black, fill=black] (4.54717597837681, 0.5226417712162162) circle (0.0125);
+        \draw[color=black, fill=black] (5.453384837466521, 0.8395571907443177) circle (0.0125);
+        \draw[color=black, fill=black] (4.96828298404839, 0.5370871961344234) circle (0.0125);
+        \draw[color=black, fill=black] (5.111204687026177, 0.673056704528609) circle (0.0125);
+        \draw[color=black, fill=black] (5.4355656915982395, 0.5866262976112611) circle (0.0125);
+        \draw[color=black, fill=black] (4.010415312045749, 0.5614752139272794) circle (0.0125);
+        \draw[color=black, fill=black] (3.067109422685935, 0.6661939875107284) circle (0.0125);
+        \draw[color=black, fill=black] (5.093154019381114, 0.7118951811233895) circle (0.0125);
+        \draw[color=black, fill=black] (3.8988807931283063, 0.9572199771469165) circle (0.0125);
+        \draw[color=black, fill=black] (5.1744340608939225, 0.9740221765864963) circle (0.0125);
+        
+        % yeah, this is smehow necessary
+        % \draw[color=white, fill=white] (0,1.1) circle (0.0125);
+        % \draw[color=white, fill=white] (0,-0.3) circle (0.0125);
+        \draw[color=white, fill=white] (-1.5,0) circle (0.0125);
+    \end{tikzpicture}
+}
+
+
+\newcommand{\scatteringillumination}{
+    \begin{tikzpicture}[domain=0:6, samples=200, scale=1]
+    
+        % x-axis
+        \draw[->, gray, line width=1pt] (0,0) -- (6.25,0) node[right, gray] {$x$};
+        \draw[->, gray, line width=1pt] (0,0) -- (0,1.5) node[above, gray] {$I(x)$};
+
+        % yeah, this is smehow necessary
+        \draw[color=white, fill=white] (-0.5,2.35) circle (0.0125);
+        % \draw[color=white, fill=white] (-0.5,-0.3) circle (0.0125);
+        \draw[color=white, fill=white] (-1.5,0) circle (0.0125);
+
+        % illumination plot
+        % \draw[color=black, line width=1pt]    plot (\x, {a*sin(\x/p)+b});
+        \draw[color=darkgray, densely dotted, line width=1pt]    plot (\x, {\a*sin(deg(\x/\p*2))+\b});
+        % Delta = 5
+        \draw[color=black, line width=1] plot coordinates {
+(0.0, 0.75)
+(0.03015075376884422, 0.8201370037170813)
+(0.06030150753768844, 0.8839462323511058)
+(0.09045226130653267, 0.9356708040049198)
+(0.12060301507537688, 0.9706441170510418)
+(0.1507537688442211, 0.9857108719024255)
+(0.18090452261306533, 0.9795117427983681)
+(0.21105527638190955, 0.9526060164577541)
+(0.24120603015075376, 0.9074211331147921)
+(0.271356783919598, 0.8480336823555126)
+(0.3015075376884422, 0.7798016123562692)
+(0.3316582914572864, 0.7088808346833473)
+(0.36180904522613067, 0.6416698366693394)
+(0.39195979899497485, 0.5842324085533612)
+(0.4221105527638191, 0.5417505670627483)
+(0.4522613065326633, 0.5180570327846397)
+(0.4824120603015075, 0.5152894413163489)
+(0.5125628140703518, 0.5336974853365624)
+(0.542713567839196, 0.5716203872798626)
+(0.5728643216080401, 0.6256367350345772)
+(0.6030150753768844, 0.6908731624560848)
+(0.6331658291457286, 0.7614440254753768)
+(0.6633165829145728, 0.8309824061327895)
+(0.6934673366834171, 0.8932145372423868)
+(0.7236180904522613, 0.9425258229741367)
+(0.7537688442211055, 0.974467388859071)
+(0.7839195979899497, 0.986157460170459)
+(0.8140703517587939, 0.9765413562398516)
+(0.8442211055276382, 0.9464866439666506)
+(0.8743718592964824, 0.8987048657517538)
+(0.9045226130653266, 0.8375069035774036)
+(0.9346733668341708, 0.7684140503369026)
+(0.964824120603015, 0.6976598776398415)
+(0.9949748743718593, 0.6316278416831913)
+(1.0251256281407035, 0.5762753665037057)
+(1.0552763819095476, 0.5365963639405491)
+(1.085427135678392, 0.516170681869068)
+(1.1155778894472361, 0.5168411295798877)
+(1.1457286432160803, 0.5385472191409044)
+(1.1758793969849246, 0.579330622631122)
+(1.2060301507537687, 0.6355118528935585)
+(1.236180904522613, 0.702022227632911)
+(1.2663316582914572, 0.77286116698795)
+(1.2964824120603013, 0.8416375670964668)
+(1.3266331658291457, 0.9021464068170392)
+(1.3567839195979898, 0.9489285660292458)
+(1.3869346733668342, 0.9777633485889814)
+(1.4170854271356783, 0.9860492744158862)
+(1.4472361809045227, 0.9730387855726941)
+(1.4773869346733668, 0.939905691107598)
+(1.507537688442211, 0.8896392657767063)
+(1.5376884422110553, 0.8267745570911631)
+(1.5678391959798994, 0.7569832324609994)
+(1.5979899497487438, 0.6865618803250019)
+(1.6281407035175879, 0.6218639309077139)
+(1.658291457286432, 0.5687264489464695)
+(1.6884422110552764, 0.5319435134776476)
+(1.7185929648241205, 0.5148336968415934)
+(1.7487437185929648, 0.5189406656936337)
+(1.778894472361809, 0.5438939169724394)
+(1.809045226130653, 0.587442215096882)
+(1.8391959798994975, 0.6456567166376646)
+(1.8693467336683416, 0.7132854611133062)
+(1.899497487437186, 0.7842272526009768)
+(1.92964824120603, 0.8520821885546739)
+(1.9597989949748742, 0.9107291812694773)
+(1.9899497487437185, 0.9548783875224478)
+(2.020100502512563, 0.9805487325772726)
+(2.050251256281407, 0.9854274816185797)
+(2.080402010050251, 0.9690794651817083)
+(2.1105527638190953, 0.932987145537078)
+(2.1407035175879394, 0.8804179949689657)
+(2.170854271356784, 0.8161312675195379)
+(2.201005025125628, 0.7459507757072038)
+(2.2311557788944723, 0.6762424205258744)
+(2.2613065326633164, 0.6133438654190357)
+(2.2914572864321605, 0.5629981002170281)
+(2.321608040201005, 0.5298422959021309)
+(2.351758793969849, 0.5169983102802267)
+(2.3819095477386933, 0.525801894068852)
+(2.4120603015075375, 0.5556948776151643)
+(2.4422110552763816, 0.6042895077506805)
+(2.472361809045226, 0.6675979528118586)
+(2.5025125628140703, 0.7404041365605171)
+(2.5326633165829144, 0.8167407618309966)
+(2.5628140703517586, 0.8904229121902558)
+(2.5929648241206027, 0.9555826528688242)
+(2.6231155778894473, 1.0071492531571258)
+(2.6532663316582914, 1.0412305750672184)
+(2.6834170854271355, 1.0553750044802248)
+(2.7135678391959797, 1.048725723516146)
+(2.743718592964824, 1.022104150831025)
+(2.7738693467336684, 0.9780518879700105)
+(2.8040201005025125, 0.9208039192326655)
+(2.8341708542713566, 0.8560798995177995)
+(2.8643216080402008, 0.7905339641215239)
+(2.8944723618090453, 0.7307810362700153)
+(2.9246231155778895, 0.6821408421469317)
+(2.9547738693467336, 0.6475049549697564)
+(2.9849246231155777, 0.6268383684784219)
+(3.015075376884422, 0.6176274370321369)
+(3.0452261306532664, 0.6161365891752334)
+(3.0753768844221105, 0.6189048185655119)
+(3.1055276381909547, 0.6237954478661474)
+(3.135678391959799, 0.630197264697515)
+(3.165829145728643, 0.6384652840912082)
+(3.1959798994974875, 0.6490597684229064)
+(3.2261306532663316, 0.6618875945751781)
+(3.2562814070351758, 0.6761126065316894)
+(3.28643216080402, 0.690391133931486)
+(3.316582914572864, 0.7033008727817738)
+(3.3467336683417086, 0.7137251479481393)
+(3.3768844221105527, 0.7210634282087185)
+(3.407035175879397, 0.7252594102141786)
+(3.437185929648241, 0.7267064774346814)
+(3.467336683417085, 0.7261009486593368)
+(3.4974874371859297, 0.7242924327393238)
+(3.527638190954774, 0.7221548962345999)
+(3.557788944723618, 0.7204850943286483)
+(3.587939698492462, 0.719927859635141)
+(3.618090452261306, 0.7209263062665157)
+(3.648241206030151, 0.7236954015083472)
+(3.678391959798995, 0.7282176068179529)
+(3.708542713567839, 0.7342589143608207)
+(3.738693467336683, 0.7414027784464833)
+(3.7688442211055273, 0.7490984567996274)
+(3.798994974874372, 0.7567193662417933)
+(3.829145728643216, 0.76362637841268)
+(3.85929648241206, 0.7692306404520171)
+(3.8894472361809043, 0.7730505710054181)
+(3.9195979899497484, 0.7747581807953677)
+(3.949748743718593, 0.7742107812244224)
+(3.979899497487437, 0.7714654100514333)
+(4.010050251256281, 0.7667748160361159)
+(4.040201005025126, 0.7605654717174164)
+(4.0703517587939695, 0.7533996780257788)
+(4.100502512562814, 0.7459252402993481)
+(4.130653266331658, 0.738817302430948)
+(4.160804020100502, 0.7327176226118022)
+(4.190954773869347, 0.7281767964465343)
+(4.221105527638191, 0.7256046604195925)
+(4.251256281407035, 0.7252333651135733)
+(4.281407035175879, 0.7270964601436143)
+(4.311557788944723, 0.7310258848692478)
+(4.341708542713568, 0.7366671410561414)
+(4.371859296482412, 0.7435112815828065)
+(4.402010050251256, 0.7509408310002091)
+(4.4321608040201, 0.7582854960817451)
+(4.4623115577889445, 0.764882640788228)
+(4.492462311557789, 0.770137069950333)
+(4.522613065326633, 0.7735747281773336)
+(4.552763819095477, 0.7748854693784312)
+(4.582914572864321, 0.7739510382830544)
+(4.613065326633166, 0.770855739494638)
+(4.64321608040201, 0.7658788315312621)
+(4.673366834170854, 0.7594693320736943)
+(4.703517587939698, 0.7522055075014527)
+(4.733668341708542, 0.7447427015818838)
+(4.763819095477387, 0.7377542102200466)
+(4.793969849246231, 0.731870536562422)
+(4.824120603015075, 0.7276225068719412)
+(4.8542713567839195, 0.7253933792720844)
+(4.884422110552763, 0.7253842661192009)
+(4.914572864321608, 0.7275959896038506)
+(4.944723618090452, 0.7318290075726077)
+(4.974874371859296, 0.7377014162627051)
+(5.005025125628141, 0.7446834057390542)
+(5.035175879396984, 0.752145059456933)
+(5.065326633165829, 0.7594131854638475)
+(5.0954773869346734, 0.7658320519176938)
+(5.125628140703517, 0.7708225473501235)
+(5.155778894472362, 0.7739344282238336)
+(5.185929648241205, 0.7748869399982746)
+(5.21608040201005, 0.7735941468627733)
+(5.2462311557788945, 0.7701726848832693)
+(5.276381909547738, 0.7649312390721547)
+(5.306532663316583, 0.7583426937621639)
+(5.3366834170854265, 0.7510014688833863)
+(5.366834170854271, 0.7435698912733694)
+(5.396984924623116, 0.7367184394118925)
+(5.427135678391959, 0.7310652527128764)
+(5.457286432160804, 0.7271203628577165)
+(5.487437185929648, 0.725239678630763)
+(5.517587939698492, 0.7255928757546687)
+(5.547738693467337, 0.7281480887113534)
+(5.57788944723618, 0.7326747856556808)
+(5.608040201005025, 0.7387645670465413)
+(5.638190954773869, 0.7458680115385092)
+(5.668341708542713, 0.7533442448900581)
+(5.698492462311558, 0.7605187597711073)
+(5.7286432160804015, 0.7667442699548247)
+(5.758793969849246, 0.7714591086158249)
+(5.788944723618091, 0.7742379020281348)
+(5.819095477386934, 0.7748299468713458)
+(5.849246231155779, 0.7731818287363961)
+(5.879396984924623, 0.7694422411846806)
+(5.909547738693467, 0.7639485705839734)
+(5.939698492462312, 0.7571964570400579)
+(5.969849246231155, 0.749795077643155)
+(6.0, 0.7424121863839664)
+        };
+    \end{tikzpicture}
+}

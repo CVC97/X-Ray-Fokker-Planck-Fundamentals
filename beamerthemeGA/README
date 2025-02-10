@@ -1,0 +1,42 @@
+         The GAslides package
+      LaTeX templates for slides
+for Georg-August-Universität Göttingen
+
+
+File:       README
+Maintainer: Studiendekanat Mathematik,
+            Fakultät für Mathematik und Informatik,
+            Georg-August-Universität Göttingen
+
+
+DESCRIPTION
+===========
+
+The GAslides package provides the layout of
+Georg-August-Universität Göttingen for slides/presentations.
+
+Copyright (C) 2022 Georg-August-Universität Göttingen
+
+
+FILES IN DISTRIBUTION
+=====================
+
+   BASE DISTRIBUTION:
+
+      README                 This file
+      beamerthemeGA.sty      Package source and installation file
+      slides.tex             Slides template
+      logo-[12].eps/.pdf     Logo files
+
+   DOKUMENTATION:
+
+      GAslides.pdf           User manual
+
+
+BASIC INSTALLATION
+==================
+
+   The minimum requirement to use the package is to have
+   'beamerthemeGA.sty' (as well as the logo files)
+   in a directory where TeX can find it.
+

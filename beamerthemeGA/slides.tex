@@ -1,0 +1,947 @@
+\documentclass[
+ %c,%--- activate to have the slide content vertically centered by default
+ %beamer-class options that do not change the layout can be added here
+ %UKenglish%,french% ... %--- activate one (or more) language options as needed
+ ]{beamer}%for detailed information see: "texdoc beamer"
+\usetheme[%
+ guidingprinciple %--- activate to have "In Publica Commoda" as part of the logo
+ ]{GA}
+
+\graphicspath{{examplefiles/}}% this command from the graphics package allows to add folders (here subfolder "examplefiles") to be searched for graphic/image files
+
+%\setbeamertemplate{navigation symbols}{}%--- activate to suppress the navigation symbols
+
+%meta data fields: their content will be used for the title page
+ %(title and author will also be added automatically as PDF meta information)
+\author{Carlo von Carnap}
+\title{X-Ray Fokker-Planck Equation}
+\subtitle{Fundamentals}
+% \institute[Name of Division, Institute, Business Unit]{Name of Division, Institute, Business Unit}
+% \logo{\includegraphics[height=5.7mm]{info}}%e.g. insitute logo or project logo
+                                          %(the 'info' graphic comes from the standard package "notes"
+                                          % and must in case of need b replaced by your individual logo)
+%\titlegraphic{\includegraphics[]{info}}%--- activate to have an image / a graphic on your title page
+
+\date[07.02.2025]{07.02.2025} %--- activate to suppress date on title page
+
+\input{tikzpictures/tikz_modalities}
+\input{tikzpictures/tikz_phase_image}
+\input{tikzpictures/tikz_phase_effects}
+\input{tikzpictures/tikz_phase_illumination}
+\input{tikzpictures/tikz_scattering_edge}
+\input{tikzpictures/tikz_scattering_illumination}
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+% \begin{frame}{Content}
+%   \tableofcontents
+% \end{frame}
+
+
+\begin{frame}{Conventional X-Ray Imaging}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\textwidth]{images/Broken_Arm.png}
+        
+        \scriptsize\cite{broken_hand}
+        \label{fig:broken_arm}
+    \end{figure}    
+\end{frame}
+
+
+\begin{frame}{Conventional X-Ray Imaging}
+    \vspace{0.2cm}
+    \begin{columns}
+        \begin{column}{.62\textwidth}
+            \textbf{Attenuation} of the X-Ray beam
+            
+            \vspace{0.5cm}
+            \begin{tikzpicture}[domain=0:2.5, samples=200, scale=1]
+        
+                % beam to sample
+                \draw[->, gray, line width=1pt] (0,0) -- (3.5,0) node[right, gray] {$z$};
+                
+                % \draw[black, line width=0.25mm] (1.5, 1) circle [x radius=0.25, y radius=0.5];
+                \draw[->, black, line width=1pt] (0,1) -- (0.75,1);
+                \draw[-, black, line width=1pt] (0,1) -- (1.25,1);
+                \draw[-, gray, line width=1pt] (1.25,1) -- (3,1);
+                \draw [draw=black, line width=0.25, fill=gray] (1, 0.5) rectangle (1.5,1.5);
+                
+                % beam profile
+                \def\intensity{2}
+                \def\sigma{0.4}
+                \def\mu{1.25}
+        
+                \def\xprofileshift{5.5}
+                \draw[->, gray, line width=1pt] (\xprofileshift+0,0) -- (\xprofileshift+3,0) node[right, gray] {$x$};
+                \draw[->, gray, line width=1pt] (\xprofileshift+0,0) -- (\xprofileshift+0,2) node[above, gray] {$I$};
+                
+                \draw[color=black, line width=1pt]    plot (\x+\xprofileshift, {\intensity*exp(-((\x-\mu)/\sigma)^2/\sigma});
+                \draw[color=gray, line width=1pt, densely dashed]    plot (\x+\xprofileshift, {\intensity/2*exp(-((\x-\mu)/\sigma)^2/\sigma});
+                
+            \end{tikzpicture}
+            
+            \vspace{1.3cm}
+            % \RaggedLeft
+            \scriptsize adapted from \cite{c93883346cc94c57814d1d935575b678}
+        \end{column}
+
+        \begin{column}{.28\textwidth}
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[width=0.7\textwidth]{images/XRay_Attenuation_Contrast.jpg}
+
+                % \vspace{0.2cm}
+                \scriptsize\cite{Bech2013}
+                \label{fig:attenuation_contrast}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{X-Ray Imaging: Complementary Modalities}
+    \vspace{0.2cm}
+    \begin{columns}
+        \begin{column}{0.0\textwidth}
+            
+        \end{column}
+        \begin{column}{.315\textwidth}
+            \textbf{Attenuation} Image
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[width=0.63\textwidth]{images/XRay_Attenuation_Contrast.jpg}
+                
+                \scriptsize\cite{Bech2013}
+                % \label{fig:attenuation_contrast}
+            \end{figure}
+        \end{column}
+        \begin{column}{.315\textwidth}
+            \textbf{Phase-Contrast} Image
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[width=0.63\textwidth]{images/XRay_Phase_Contrast.jpg}
+                
+                \scriptsize\cite{Bech2013}
+                % \label{fig:attenuation_contrast}
+            \end{figure}
+        \end{column}
+        \begin{column}{.315\textwidth}
+            \textbf{Dark-Field} Image
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[width=0.63\textwidth]{images/XRay_DarkField_Contrast.jpg}
+                
+                \scriptsize\cite{Bech2013}
+                % \label{fig:attenuation_contrast}
+            \end{figure}
+        \end{column}
+    \end{columns}    
+\end{frame}
+
+
+\begin{frame}{Complementary Modalities}
+    \vspace{0.2cm}
+    \begin{columns}
+        \begin{column}{.62\textwidth}
+            \textbf{Phase Shift} caused by soft tissues
+            
+            \vspace{0.5cm}
+            \phaserefraction
+
+            \vspace{1.3cm}
+            % \RaggedLeft
+            \scriptsize adapted from \cite{c93883346cc94c57814d1d935575b678}
+        \end{column}
+
+        \begin{column}{.28\textwidth}
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[width=0.7\textwidth]{images/XRay_Phase_Contrast.jpg}
+                
+                \scriptsize\cite{Bech2013}
+                \label{fig:phase_contrast}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Complementary Modalities}
+    \vspace{0.2cm}
+    \begin{columns}
+        \begin{column}{.62\textwidth} 
+            \textbf{Dark-Field Signal} resulting from unresolved, sub-pixel structures 
+            
+            \vspace{0.5cm}
+            \darkfieldscatter
+
+            \vspace{0.8cm}
+            % \RaggedLeft
+            \scriptsize adapted from \cite{c93883346cc94c57814d1d935575b678}
+        \end{column}
+
+        \begin{column}{.28\textwidth}
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[width=0.7\textwidth]{images/XRay_DarkField_Contrast.jpg}
+                
+                \scriptsize\cite{Bech2013}
+                \label{fig:darkfield_contrast}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Complementary Modalities}
+    \begin{itemize}
+        \item detector can only measure intensities
+        \item mathematical model required to extract \textbf{phase shift} and \textbf{dark-field signal}
+        % \item integrated intensity conserved post sample 
+    \end{itemize}
+    \vspace{0.5cm}
+    \begin{columns}
+        \begin{column}{.25\textwidth}
+                \begin{tikzpicture}[domain=0:2.5, samples=200, scale=1.25]
+                    % beam profile
+                    \def\intensity{2}
+                    \def\sigma{0.4}
+                    \def\mu{1.25}
+            
+                    \draw[->, gray, line width=1pt] (0,0) -- (3,0) node[right, gray] {$x$};
+                    \draw[->, gray, line width=1pt] (0,0) -- (0,2) node[above, gray] {$I$};
+                    
+                    \draw[color=black, line width=1pt]    plot (\x, {\intensity*exp(-((\x-\mu)/\sigma)^2/\sigma});
+                    \draw[color=red, line width=1pt, densely dashed]    plot (\x, {\intensity*exp(-((\x-(\mu+0.5))/\sigma)^2/\sigma});
+                    \draw (2.9,1) node[red] {phase shift};
+                    
+                \end{tikzpicture}
+        \end{column}
+
+        \begin{column}{.25\textwidth}        
+                \begin{tikzpicture}[domain=0:2.5, samples=200, scale=1.25]
+                    % beam profile
+                    \def\intensity{2}
+                    \def\sigma{0.4}
+                    \def\dsigma{0.35}
+                    \def\mu{1.25}
+            
+                    \draw[->, gray, line width=1pt] (0,0) -- (3,0) node[right, gray] {$x$};
+                    \draw[->, gray, line width=1pt] (0,0) -- (0,2) node[above, gray] {$I$};
+                    
+                    \draw[color=black, line width=1pt]    plot (\x, {\intensity*exp(-((\x-\mu)/\sigma)^2/\sigma});
+                    \draw[color=blue, line width=1pt, densely dashed]    plot (\x, {\intensity*\sigma/(\sigma+\dsigma)*exp(-((\x-\mu)/(\sigma+\dsigma))^2/(\sigma+\dsigma)});
+                    \draw (2.8,1) node[blue] {dark field signal};
+                    
+                \end{tikzpicture}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Complementary Modalities}
+    \begin{itemize}
+        \item integrated intensity conserved post sample 
+        \item analogous to a \textbf{probability distribution} 
+    \end{itemize}
+    \vspace{0.5cm}
+    \begin{columns}
+        \begin{column}{.25\textwidth}
+                \begin{tikzpicture}[domain=0:2.5, samples=200, scale=1.25]
+                    % beam profile
+                    \def\intensity{2}
+                    \def\sigma{0.4}
+                    \def\mu{1.25}
+            
+                    \draw[->, gray, line width=1pt] (0,0) -- (3,0) node[right, gray] {$x$};
+                    \draw[->, gray, line width=1pt] (0,0) -- (0,2) node[above, gray] {$p$};
+                    
+                    \draw[color=black, line width=1pt]    plot (\x, {\intensity*exp(-((\x-\mu)/\sigma)^2/\sigma});
+                    \draw[color=red, line width=1pt, densely dashed]    plot (\x, {\intensity*exp(-((\x-(\mu+0.5))/\sigma)^2/\sigma});
+                    \draw (3.05,1) node[red] {drift in mean};
+                    
+                \end{tikzpicture}
+        \end{column}
+    
+        \begin{column}{.25\textwidth}        
+                \begin{tikzpicture}[domain=0:2.5, samples=200, scale=1.25]
+                    % beam profile
+                    \def\intensity{2}
+                    \def\sigma{0.4}
+                    \def\dsigma{0.35}
+                    \def\mu{1.25}
+            
+                    \draw[->, gray, line width=1pt] (0,0) -- (3,0) node[right, gray] {$x$};
+                    \draw[->, gray, line width=1pt] (0,0) -- (0,2) node[above, gray] {$p$};
+                    
+                    \draw[color=black, line width=1pt] plot (\x, {\intensity*exp(-((\x-\mu)/\sigma)^2/\sigma});
+                    \draw[color=blue, line width=1pt, densely dashed] plot (\x, {\intensity*\sigma/(\sigma+\dsigma)*exp(-((\x-\mu)/(\sigma+\dsigma))^2/(\sigma+\dsigma)});
+                    \draw (2.3,1) node[blue] {diffusion};
+                    
+                \end{tikzpicture}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Fokker-Planck Equation}         
+    Time-evolution of probability distribution $p(x,t)$:
+    \begin{equation*}
+        \partial_t p=\fcolorbox{red}{red!20}{$-\partial_x \left[D_1p\right]$}+\fcolorbox{blue}{blue!20}{$\partial_x^2\left[D_2p\right]$}
+    \end{equation*}
+    \vspace{-0.45cm} 
+    \begin{itemize}
+        \item \textcolor{red}{drift velocity $D_1(x,t)$}
+        \item \textcolor{blue}{diffusion coefficient $D_2(x,t)$}
+    \end{itemize}
+    \vspace{0.35cm} 
+    \begin{columns}
+        \begin{column}{.25\textwidth}
+                \begin{tikzpicture}[domain=0:2.5, samples=200, scale=0.8]
+                    % beam profile
+                    \def\intensity{2}
+                    \def\sigma{0.4}
+                    \def\mu{1.25}
+            
+                    \draw[->, gray, line width=1pt] (0,0) -- (3,0) node[right, gray] {$x$};
+                    \draw[->, gray, line width=1pt] (0,0) -- (0,2) node[above, gray] {$p$};
+                    
+                    \draw[color=black, line width=1pt]    plot (\x, {\intensity*exp(-((\x-\mu)/\sigma)^2/\sigma});
+                    \draw[color=red, line width=1pt, densely dashed]    plot (\x, {\intensity*exp(-((\x-(\mu+0.5))/\sigma)^2/\sigma});
+                    \draw (3.6,1) node[red] {drift in mean};
+                    
+                \end{tikzpicture}
+        \end{column}
+        \begin{column}{.25\textwidth}        
+                \begin{tikzpicture}[domain=0:2.5, samples=200, scale=0.8]
+                    % beam profile
+                    \def\intensity{2}
+                    \def\sigma{0.4}
+                    \def\dsigma{0.35}
+                    \def\mu{1.25}
+            
+                    \draw[->, gray, line width=1pt] (0,0) -- (3,0) node[right, gray] {$x$};
+                    \draw[->, gray, line width=1pt] (0,0) -- (0,2) node[above, gray] {$p$};
+                    
+                    \draw[color=black, line width=1pt] plot (\x, {\intensity*exp(-((\x-\mu)/\sigma)^2/\sigma});
+                    \draw[color=blue, line width=1pt, densely dashed] plot (\x, {\intensity*\sigma/(\sigma+\dsigma)*exp(-((\x-\mu)/(\sigma+\dsigma))^2/(\sigma+\dsigma)});
+                    \draw (2.7,1) node[blue] {diffusion};
+                    
+                \end{tikzpicture}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Fokker-Planck Equation}
+    Applications:
+    \begin{itemize}
+        \item Brownian motion           % movement of Brownian particles
+        \item hydrodynamics             %
+        \item electron and photon transport in biological tissues
+        % \item homogeneous media
+        % \item high-temperature atomic-level disorder in pre-melting surfaces
+        \item gaseous micro-flows
+        \item droplet nucleation        % mass distribution of droplet over time
+        % \item dilute polymer dynamics
+        % \item hot plasmas
+        % \item biaxial fluids
+        % \item cold turbulent gas jets
+        \item \textbf{X-ray imaging}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{X-Ray Fokker-Planck Equation}
+    % \vspace{-0.6cm} 
+    Modification from \textbf{time-evolution $\partial_t p$} to \textbf{intensity change $\partial_z I$}:
+    \begin{equation*}
+        \partial_t p=\fcolorbox{red}{red!20}{$-\partial_x \left[D_1p\right]$}+\fcolorbox{blue}{blue!20}{$\partial_x^2\left[D_2p\right]$}\qquad\longrightarrow\qquad\partial_z I=\fcolorbox{red}{red!20}{$-\frac{1}{k}\partial_x\left[I\partial_x\phi\right]$}+\fcolorbox{blue}{blue!20}{$\partial^2_x\left[D(z)I\right]$}
+    \end{equation*}
+    \vspace{-0.45cm} 
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{itemize}
+                \item $t$: change over propagation distance $z$
+                \item $p$: beam intensity $I$
+                \item $D_1$: phase shift $\frac{1}{k}\partial_x\phi$
+                \item  $D_2$: ``linear'' diffusion coefficient $D(z)$
+            \end{itemize}
+        \end{column}    
+        \begin{column}{0.3\textwidth}
+            % \vspace{0cm}
+            
+            \phaseplusdarkfield     
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{X-Ray Fokker-Planck Equation}
+    1-dimensional detector signal: 
+    \begin{equation*}
+        \partial_z I=\fcolorbox{red}{red!20}{$-\frac{1}{k}\partial_x\left[I\partial_x\phi\right]$}+\fcolorbox{blue}{blue!20}{$\partial^2_x\left[D(z)I\right]$}
+    \end{equation*}
+    2-dimensional detector signal:
+    \begin{equation*}
+        \partial_z I=\fcolorbox{red}{red!20}{$-\frac{1}{k}\nabla_\perp\left[I\nabla_\perp\phi\right]$}+\fcolorbox{blue}{blue!20}{$\nabla^2_\perp\left[D(z)I\right]$}
+    \end{equation*}
+
+    \begin{itemize}
+        \item \textcolor{red}{Transport-of-intensity equation}
+        \item \textcolor{blue}{diffusion term}
+    \end{itemize}
+\end{frame}
+
+
+% \begin{frame}{Transport-of-Intensity Equation}
+%     \begin{equation*}
+%         \partial_z I=\fcolorbox{red}{red!20}{$-\frac{1}{k}\nabla_\perp\left[I\nabla_\perp\phi\right]$}
+%     \end{equation*}
+%     \begin{itemize}
+%         \item energy transport of an electrical field
+%         \item computational phase recovery
+%         \item derivation by \cite{Teague:83}
+%     \end{itemize}
+% \end{frame}
+
+
+\begin{frame}{Transport-of-Intensity Equation}
+    Homogeneous \textbf{Helmholtz-Equation} for a monochromatic wave $\psi_\omega$:
+    \begin{equation*}
+        \left(\nabla^2+k^2\right)\psi_\omega=0
+    \end{equation*}
+    
+    \textbf{Paraxial Approximation:} 
+    \begin{equation*}
+        \psi_\omega=\Phi e^{ikz}
+    \end{equation*}
+    \vspace{-0.45cm} 
+    \begin{itemize}
+        \item $\Phi\left(x,y,z\right)$: complex envelope with slow $z$-variation such that $\partial_z^2\Phi=0$
+        \item $e^{ikz}$: oscillatory plane wave behaviour
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \textbf{Paraxial Wave Equation:}
+    \begin{equation*}
+        \left(2ik\partial_z^2+\nabla_\perp^2\right)\Phi=0
+    \end{equation*}
+
+    \textbf{Projection Approximation:}
+    \begin{equation*}
+        \Phi=\sqrt{I}e^{i\phi}
+    \end{equation*}
+    \vspace{-0.45cm} 
+    \begin{itemize}
+        \item no diffraction\,/\,scattering \textbf{within} the (thin) sample
+        \item $\sqrt{I(x,y,z)}$: amplitude
+        \item $\phi(x,y,z)$: phase
+    \end{itemize}
+    \begin{equation*}
+        \partial_z I=-\frac{1}{k}\nabla_\perp\left[I\nabla_\perp\phi\right]
+    \end{equation*}
+\end{frame}
+
+
+\begin{frame}{X-Ray Fokker-Planck Equation}
+
+    \vspace{0.2cm}
+    \begin{columns}
+        \begin{column}{0.455\textwidth}
+            \textcolor{red}{\textbf{Transport-of-Intensity Equation}}
+            \begin{equation*}
+                \partial_z I=\fcolorbox{red}{red!20}{$-\frac{1}{k}\nabla_\perp\left[I\nabla_\perp\phi\right]$}
+            \end{equation*}
+            % \vspace{-0.45cm}
+            \begin{itemize}
+                \item \textbf{energy conservation} under \textit{coherent} x-ray energy transport
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.455\textwidth}
+            \textcolor{blue}{\textbf{Diffusion Term}}
+            \begin{equation*}
+                \partial_z I=\fcolorbox{blue}{blue!20}{$\nabla^2_\perp\left[D(z)I\right]$}
+            \end{equation*}
+            % \vspace{-0.45cm}
+            \begin{itemize}
+                \item \textbf{energy conservation} under \textit{diffusive} x-ray energy transport
+            \end{itemize}
+        \end{column}
+    \end{columns}
+
+    \vspace{0.5cm}
+    \centering\textbf{Constant (Noether) Charge:} integrated intensity
+    \begin{equation*}
+        \mathfrak{N}=\iint I\left(x,y,z\right)\infd{x}\infd{y}
+    \end{equation*}
+    
+    % \begin{columns}
+    %     \begin{column}{0.475\textwidth}
+    %         \begin{itemize}
+    %             \item \textbf{energy conservation} under \textit{coherent} x-ray energy transport
+    %         \end{itemize}
+    %     \end{column}
+    %     \begin{column}{0.475\textwidth}
+    %         \begin{itemize}
+    %             \item \textbf{energy conservation} under \textit{diffusive} x-ray energy transport
+    %         \end{itemize}
+    %     \end{column}
+    % \end{columns}
+    
+\end{frame}
+
+
+\begin{frame}
+    \begin{columns}
+        \begin{column}{0.455\textwidth}
+            \textcolor{red}{\textbf{Transport-of-Intensity Equation}}
+            \begin{equation*}
+                \partial_z I=\fcolorbox{red}{red!20}{$-\frac{1}{k}\nabla_\perp\left[I\nabla_\perp\phi\right]$}
+            \end{equation*}
+        \end{column}
+        \begin{column}{0.455\textwidth}
+            \textcolor{blue}{\textbf{Diffusion Term}}
+            \begin{equation*}
+                \partial_z I=\fcolorbox{blue}{blue!20}{$\nabla^2_\perp\left[D(z)I\right]$}
+            \end{equation*}
+        \end{column}
+    \end{columns}
+
+    \vspace{0.5cm}
+    \centering\textbf{Conserved (Noether) Current:}
+    
+    \begin{columns}
+        \begin{column}{0.455\textwidth}
+            \centering transverse Poynting vector
+            \begin{equation*}
+                \textbf{J}_\perp^{(1)}\equiv\frac{1}{k} I\nabla_\perp\phi
+            \end{equation*}
+        \end{column}
+        \begin{column}{0.455\textwidth}
+            \centering Fick's first law of diffusion
+            \begin{equation*}
+                \textbf{J}_\perp^{(2)}\equiv-\nabla_\perp\left[D(z)I\right]
+            \end{equation*}
+        \end{column}
+    \end{columns}    
+    
+    % \vspace{0.25cm}
+    % \centering\textbf{Constant Charge:} integrated intensity
+    % \begin{equation*}
+    %     \mathfrak{N}=\iint I\infd{x}\infd{y}
+    % \end{equation*}
+
+    \centering\textbf{Continuity Equation:}
+    \begin{equation*}
+        \partial_z I=-\nabla_\perp\left(\textbf{J}_\perp^{(1)}+\textbf{J}_\perp^{(2)}\right)=-\nabla_\perp\textbf{J}_\perp
+    \end{equation*}
+\end{frame}
+
+
+\begin{frame}{Application to Forward Problems}
+    \vspace{0.2cm}
+    \begin{columns}
+        \begin{column}{0.65\textwidth}
+            \textbf{Phase-Contrast} Image
+            \begin{equation*}
+                \partial_z I=\fcolorbox{red}{red!20}{$-\frac{1}{k}\partial_x\left[I\partial_x\phi\right]$}
+            \end{equation*}
+        \end{column}
+        \begin{column}{0.25\textwidth}
+        
+            \cylinder
+        \end{column}
+    \end{columns}
+    
+    \vspace{-0.8cm}
+    Transport-of-intensity equation: \textbf{finite difference}
+    \begin{equation*}
+        I(z=\Delta)=I(z=0)-\frac{\Delta}{k}\Bigl(\partial_xI\cdot \partial_x\phi+I\cdot\partial_x^2\phi\Bigr)
+    \end{equation*}
+    \vspace{-0.45cm}
+    \begin{itemize}
+        \item intensity at small distance $\Delta$ from sample
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \textbf{Phase-Contrast} Image
+    % \vspace{-0.25cm} 
+    \begin{equation*}
+        I(z=\Delta)=I(z=0)-\frac{\Delta}{k}\Bigl(\partial_xI\cdot\fcolorbox{black}{black!20}{$\partial_x\phi$}+I\cdot\fcolorbox{black}{black!20}{$\partial_x^2\phi$}\Bigr)
+    \end{equation*}
+
+    \begin{columns}
+        \begin{column}{0.05\textwidth}
+            \cylinder
+        \end{column}
+        \begin{column}{0.05\textwidth}
+            \phase
+        \end{column}
+        \begin{column}{0.05\textwidth}
+            \dphase
+            
+            \vspace{0.5cm}
+            \dphasecontrast
+        \end{column}
+        \begin{column}{0.05\textwidth}
+            \ddphase
+
+            \vspace{0.5cm}
+            \ddphasecontrast
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Phase Effects}
+    \vspace{-0.35cm}
+    \begin{equation*}
+        I(z=\Delta)=I(z=0)-\frac{\Delta}{k}\Bigl(\partial_xI\cdot \partial_x\phi+I\cdot\partial_x^2\phi\Bigr)
+    \end{equation*}
+
+    \vspace{0.25cm}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Detector image: \textbf{sinusoidal illumination}
+            \begin{equation*}
+                I(x)=a\sin{\left(\frac{x}{p}\right)}+b
+            \end{equation*}
+            
+            % Transport-of-intensity equation: \textbf{finite difference}
+            % Application to \textbf{finite difference} form of the transport-of-intensity equation
+            % \vspace{-0.45cm}
+            \begin{itemize}
+                \item \textbf{prism effects}
+                \item \textbf{focusing effects}
+                \item \textbf{edge effects}
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+
+            \gratingillumination
+        \end{column}
+    \end{columns}
+    
+\end{frame}
+
+
+\begin{frame}
+    \textbf{Prism Effect}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \prismeffect
+            
+            \prismillumination
+        \end{column}
+        \begin{column}{0.05\textwidth}
+            
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            \vspace{-1cm}
+            \begin{equation*}
+                \partial_x\phi>0
+            \end{equation*}
+            \begin{itemize}
+                \vspace{-0.65cm}
+                % \centering
+                \item Shift $\rightarrow$
+            \end{itemize}
+
+            \vspace{0.4cm}
+            \begin{equation*}
+                \partial_x^2=0
+            \end{equation*}
+            \begin{itemize}
+                \vspace{-0.65cm}
+                % \centering
+                \item Mean unchanged
+                \item Period unchanged
+            \end{itemize}
+            \vspace{1.2cm}
+            \raggedleft
+            \scriptsize adapted from \cite{Morgan2019}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}
+    \textbf{Focusing Effect}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \focusingeffect
+
+            \focusingillumination
+        \end{column}
+        \begin{column}{0.05\textwidth}
+            
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vspace{-2cm}
+            \begin{columns}
+                % \vspace{-0.5cm}
+                \begin{column}{0.4\textwidth}
+                    \begin{equation*}
+                        \partial_x\phi>0
+                    \end{equation*}
+                    \begin{itemize}
+                        \vspace{-0.65cm}
+                        % \centering
+                        \item Shift $\rightarrow$
+                    \end{itemize}
+                \end{column}
+                \begin{column}{0.4\textwidth}
+                    \begin{equation*}
+                        \partial_x\phi<0
+                    \end{equation*}
+                    \begin{itemize}
+                        \vspace{-0.65cm}
+                        % \centering
+                        \item Shift $\leftarrow$
+                    \end{itemize}
+                \end{column}
+            \end{columns}
+
+            \vspace{1cm}
+            \begin{equation*}
+                \partial_x^2<0
+            \end{equation*}
+            \begin{itemize}
+                \vspace{-0.65cm}
+                \centering
+                \item Mean $\uparrow$
+                \item Period $\downarrow$
+            \end{itemize}
+            \vspace{1.2cm}
+            \raggedleft
+            \scriptsize adapted from \cite{Morgan2019}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}
+    \textbf{Edge Effect}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \edgeeffect
+
+            \edgeillumination
+        \end{column}
+        \begin{column}{0.05\textwidth}
+            
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vspace{-1cm}
+            \begin{equation*}
+                \partial_x<0
+            \end{equation*}
+            \begin{itemize}
+                \vspace{-0.65cm}
+                \centering
+                \item Shift $\rightarrow$
+            \end{itemize}
+            
+            % \vspace{-0.25cm}
+            \begin{columns}
+                \begin{column}{0.4\textwidth}
+                    \begin{equation*}
+                        \partial_x^2\phi>0
+                    \end{equation*}
+                    \begin{itemize}
+                        \vspace{-0.65cm}
+                        % \centering
+                        \item Mean $\downarrow$
+                        \item Period $\uparrow$
+                    \end{itemize}
+                \end{column}
+                \begin{column}{0.4\textwidth}
+                    \begin{equation*}
+                        \partial_x^2\phi<0
+                    \end{equation*}
+                    \begin{itemize}
+                        \vspace{-0.65cm}
+                        % \centering
+                        \item Mean $\uparrow$
+                        \item Period $\downarrow$
+                    \end{itemize}
+                \end{column}
+            \end{columns}
+            % \vfill
+            \vspace{1.2cm}
+            \raggedleft
+            \scriptsize adapted from \cite{Morgan2019}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+% \begin{frame}
+%     \vspace{0.2cm}
+%     \begin{columns}
+%         \begin{column}{0.0\textwidth}
+            
+%         \end{column}
+%         \begin{column}{0.317\textwidth}
+%             \textbf{Prism Effect}   
+            
+%             \prismeffect
+%         \end{column}
+%         \begin{column}{0.317\textwidth}
+%             \textbf{Focusing Effect}
+
+%             \focussingeffect
+%         \end{column}
+%         \begin{column}{0.317\textwidth}
+%             \textbf{Edge Effect}
+
+%             \edgeeffect
+%         \end{column}
+%     \end{columns}
+
+% \end{frame}
+
+\begin{frame}{Dark-Field Effects}
+    \vspace{0.2cm}
+    \begin{columns}
+        \begin{column}{0.51\textwidth}
+            \textbf{Scattering Edge}
+            \begin{equation*}
+                \partial_z I=\fcolorbox{blue}{blue!20}{$\partial_x^2\left[D(z)I\right]$}
+            \end{equation*}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+
+            \vspace{-0.3cm}
+            \scatteringedgeA
+        \end{column}
+    \end{columns}
+    
+    \vspace{-0.1cm}
+    Diffusion equation: \textbf{finite difference}
+    \begin{equation*}
+        I(z=\Delta)=I(z=0)+\Delta\Bigl(\partial_x^2\left[D(z)I\right]\Bigr)
+    \end{equation*}
+    % \begin{equation*}
+    %     I(z=\Delta)=ae^{-\frac{D\Delta}{2p^2}}\sin{\left(\frac{x}{p}\right)+b}
+    % \end{equation*}
+    
+    \vspace{-0.25cm}
+    \begin{itemize}
+        \item intensity at small distance $\Delta$ from sample
+        % \item width of sine-peaks $\propto $
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \textbf{Scattering Edge}
+
+    \centering
+    \scatteringedgeB
+\end{frame}
+
+
+\begin{frame}
+    % \textbf{Scattering Edge}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \scatteringD
+
+            \scatteringedgeC
+
+            \scatteringillumination
+        \end{column}
+        \begin{column}{0.05\textwidth}
+            
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vspace{-0.75cm}
+            \begin{equation*}
+                D>0
+            \end{equation*}
+            \begin{itemize}
+                \vspace{-0.65cm}
+                \centering
+                \item Visibility $\downarrow$
+            \end{itemize}
+
+            \vspace{0.2cm}
+            \begin{equation*}
+                \partial_x^2=0
+            \end{equation*}
+            \begin{itemize}
+                \vspace{-0.65cm}
+                \centering
+                \item Mean unchanged
+            \end{itemize}
+            \vspace{-0.3cm}
+            \begin{columns}
+                \begin{column}{0.4\textwidth}
+                    \begin{equation*}
+                        \partial_x^2>0
+                    \end{equation*}
+                    \begin{itemize}
+                        \vspace{-0.65cm}
+                        \centering
+                        \item Mean $\uparrow$
+                    \end{itemize}
+                \end{column}
+                \begin{column}{0.4\textwidth}
+                    \begin{equation*}
+                        \partial_x^2<0
+                    \end{equation*}
+                    \begin{itemize}
+                        \vspace{-0.65cm}
+                        \centering
+                        \item Mean $\downarrow$
+                    \end{itemize}
+                \end{column}
+            \end{columns}
+            \vspace{1cm}
+            \raggedleft
+            \scriptsize adapted from \cite{Morgan2019}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+% \begin{frame}{Experimental Setups}
+    
+% \end{frame}
+
+
+\begin{frame}%please customise the final slide for your needs
+  \bfseries\Huge
+  % \iflanguage{ngerman}
+  %  {Vielen Dank für Ihre\\ Aufmerksamkeit}
+  \vspace{1cm}
+   {Thank you for your attention!}
+
+  % \sffamily\mdseries\normalsize
+  % \vskip1.5\baselineskip
+  % Georg-August-Universität Göttingen\\
+  %  Straße x\\
+  %  nnnnn Göttingen\\
+  % \iflanguage{ngerman}{Tel. 0}{Phone +49\,}551\,39-n% \textbullet{} Fax \iflanguage{ngerman}{}{+49\,}551\,39-n
+  % \\
+  % E-Mail \url{xxx@yyy.uni-goettingen.de} \textbullet{} \url{uni-goettingen.de}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]
+    \frametitle{References}
+    \bibliographystyle{apalike}
+    \bibliography{sources.bib}
+\end{frame}
+
+\end{document}
